@@ -1,0 +1,42 @@
+"use server"
+import {prisma} from "@/lib/prisma"
+import {auth} from "@clerk/nextjs/server"
+import { revalidatePath } from "next/cache"
+
+export async function toggleLike(articleId: string){
+    const {userId} = await auth(); // Clerk's userId
+    if(!userId) throw new Error("You must be logged in to like an article");
+
+    //Ensure the user exist in database
+    const user = await prisma.user.findUnique({
+        where:{
+            clerkUserId:userId
+        },
+
+    })
+
+    if(!user){
+        throw new Error("User does not exist in the database.")
+    }
+
+    //Check if the user has already liked the article
+    const existingLike = await prisma.like.findFirst({
+        where:{articleId, userId: user.id},
+    })
+
+    if(existingLike){
+        //Unlike the article
+        await prisma.like.delete({
+            where:{id:existingLike.id},
+        })
+
+    }else{
+        //Like the article
+        await prisma.like.create({
+            data:{articleId, userId: user.id}
+        })
+    }
+
+    //Return updated like count
+    revalidatePath(`/articles/${articleId}`);
+} 
