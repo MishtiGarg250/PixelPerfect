@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import Sidebar from "@/components/dashboard/sidebar";
+import UserSidebar from "@/components/dashboard/sidebar";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
@@ -7,7 +7,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
       
       {/* Sidebar */}
       <aside className="w-64 h-screen fixed left-0 bg-purple-900/10 ">
-        <Sidebar />
+        <UserSidebar />
       </aside>
 
       {/* Main Content */}
@@ -19,4 +19,3 @@ const Layout = ({ children }: { children: ReactNode }) => {
 };
 
 export default Layout;
-

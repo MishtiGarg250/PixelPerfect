@@ -2,7 +2,7 @@ import {
   FileText,
   MessageCircle,
   PlusCircle,
-  Clock,
+  
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,7 +11,7 @@ import {
   CardTitle,
   CardContent,
 } from "@/components/ui/card";
-import RecentArticles from "./recent-articles";
+import RecentArticles from "./RecentArticles";
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 
@@ -44,7 +44,7 @@ export async function BlogDashboard() {
       {/* Header */}
       <div className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-purple-300">User Dashboard</h1>
+          <h1 className="text-3xl font-bold text-purple-300">Admin Dashboard</h1>
           <p className="text-sm text-purple-50">
             Manage your content and analytics
           </p>

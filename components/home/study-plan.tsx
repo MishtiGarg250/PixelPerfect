@@ -18,7 +18,7 @@ const StudyPlan = () => {
           >
             <PinContainer
               title={item.title}
-              href="/androiddev"
+              href="/user/dashboard"
             >
               <div className="flex items-center justify-center sm:w-96 w-[80vw] overflow-hidden h-[20vh] lg:h-[30vh] mb-10">
                 <div

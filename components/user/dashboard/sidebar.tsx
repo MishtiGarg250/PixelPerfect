@@ -10,7 +10,7 @@ import {
   Settings,
 } from "lucide-react";
 import Link from "next/link";
-const Sidebar = () => {
+const UserSidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -33,7 +33,7 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default UserSidebar;
 
 function DashboardSidebar({ closeSheet }: { closeSheet?: () => void }) {
   return (

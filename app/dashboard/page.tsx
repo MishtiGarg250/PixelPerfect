@@ -1,11 +1,13 @@
-import {BlogDashboard} from '@/components/dashboard/dashboard-page'
+
 import React from "react"
+import MainPage from '@/components/dashboard/MainPage'
+
 
 const page = ()=>{
     return(
-        <div>
-        <BlogDashboard/>
-        </div>
+        <>
+        <MainPage/>
+        </>
     )
 }
 

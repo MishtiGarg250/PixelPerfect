@@ -1,7 +1,7 @@
 "use client";
 import React, { useTransition } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import { Button } from "../ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import {
   Table,
   TableBody,
@@ -9,7 +9,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "../ui/table";
+} from "@/components/ui/table";
 import Link from "next/link";
 import type { Prisma } from "@prisma/client";
 import { deleteArticle } from "@/actions/delete-article";

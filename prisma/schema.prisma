@@ -85,6 +85,8 @@ model Progress {
   itemId     String
   status     ProgressStatus @default(NOT_STARTED)
   updatedAt  DateTime     @updatedAt
+  
+  @@unique([userId, itemId])
 }
 
 enum ProgressStatus {

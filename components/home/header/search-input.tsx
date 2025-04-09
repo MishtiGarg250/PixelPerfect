@@ -12,7 +12,7 @@ const SearchInput=()=>{
                 type="text"
                 name="Search"
                 placeholder="search articles..."
-                className="pl-10 w-48 focus-visible:ring-1"
+                className="outline-0 pl-10 w-48 focus-visible:ring-1 ring-purple-400"
                 />
             </div>
         </form>
