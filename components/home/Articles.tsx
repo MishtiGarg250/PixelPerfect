@@ -11,7 +11,7 @@ export default function Articles (){
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
           <h1 className=" text-3xl md:text-5xl font-bold text-center text-white">
-            Featured <span className="text-purple-400">Articles</span> behind <span className="text-purple-400">Pixel Perfect</span>
+            Featured <span className="text-[#b5b5f6]">Articles</span> behind <span className="text-[#b5b5f6]">Pixel Perfect</span>
           </h1>
           <motion.div
             variants={slideInFromRight(0.5)}

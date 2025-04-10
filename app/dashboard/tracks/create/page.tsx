@@ -86,22 +86,22 @@ const AdminDashboardForm = () => {
 
 
         <div className="p-6 max-w-5xl mx-auto">
-            <h1 className="text-3xl font-bold mb-6 text-white">Create New Track</h1>
+            <h1 className="text-3xl font-bold mb-8 text-white">Create New Track</h1>
 
-            <div className="mb-12 border p-6 rounded shadow-md bg-transparent  border-purple-200">
-                <h2 className="text-xl font-semibold mb-4 text-white">Add New Track</h2>
+            <div className="mb-12 border ml-[-8px] p-6 rounded-2xl shadow-md bg-transparent  border-white/20">
+                <h2 className="text-xl font-semibold mb-6 mt-[-6px] text-white">Add New Track</h2>
                 <input
                     type="text"
                     placeholder="Track Title"
                     value={newTrack.title}
                     onChange={(e) => handleTrackChange('title', e.target.value)}
-                    className="block border-purple-200 text-purple-300 w-full mb-4 p-2 border rounded"
+                    className="block border-white/20 text-white w-full mb-4 p-2 border rounded-lg"
                 />
                 <textarea
                     placeholder="Track Description"
                     value={newTrack.description}
                     onChange={(e) => handleTrackChange('description', e.target.value)}
-                    className="border-purple-200 text-purple-200 block w-full mb-4 p-2 border rounded"
+                    className="block border-white/20 text-white w-full mb-4 p-2 border rounded-lg"
                 />
 
                 {newTrack.modules.map((module, mIndex) => (
@@ -137,28 +137,27 @@ const AdminDashboardForm = () => {
                         ))}
                         <button
                             onClick={() => handleAddItem(mIndex)}
-                            className="text-sm mt-2 bg-purple-400 text-white px-3 py-1 rounded"
-                        >
+                            className="text-sm mt-2 bg-[#b5b5f6] text-black px-3 py-1 rounded-lg hover:bg-[#f7bff4]">
                             + Add Item
                         </button>
                     </div>
                 ))}
-
-                <button
+                <div className="flex w-full justify-end">
+                <Button
                     onClick={handleAddModule}
-                    className="mb-4 bg-purple-400 text-white px-4 py-2 rounded"
+                    className="border-[#b5b5f6] border-2 mt-2 text-[#b5b5f6] px-4 py-2 rounded-lg hover:bg-[#f7bff4] hover:text-black hover:border-[#f7bff4]"
                 >
                     + Add Module
-                </button>
+                </Button>
 
-                <br />
 
                 <Button
                     onClick={handleSubmit}
-                    className="border-purple-500 border text-white px-6 py-2 rounded hover:bg-purple-400"
+                    className="bg-[#b5b5f6] mt-2 text-black ml-3 px-4 py-2 rounded-lg hover:bg-[#f7bff4]"
                 >
                     Submit Track
                 </Button>
+                </div>
             </div>
         </div>
     )

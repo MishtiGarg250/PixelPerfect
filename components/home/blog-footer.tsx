@@ -9,12 +9,12 @@ const socialMedia = [
 
 const Footer = () => {
   return (
-    <footer className="w-full pt-20 pb-10 text-white bg-[#0D0D0D] border-t border-gray-800" id="contact">
+    <footer className="w-full pt-20 pb-10 text-white bg-black border-t border-gray-800" id="contact">
       <div className="flex flex-col items-center text-center">
         <h1 className="text-3xl md:text-4xl font-bold text-gray-200 lg:max-w-[45vw] leading-tight">
-          Ready to take <span className="text-purple-400">your</span> digital presence to the next level?
+          Ready to take your <span className="text-[#b5b5f6]">digital presence</span> to the next level?
         </h1>
-        <p className="text-gray-400 md:mt-6 mt-4 max-w-[600px]">
+        <p className="text-white/80 md:mt-6 mt-4 max-w-[600px]">
           Reach out to me today and let&apos;s discuss how I can help you achieve your goals.
         </p>
         <a href="mailto:aryansrivastava9059@gmail.com" className="mt-6">
@@ -27,8 +27,8 @@ const Footer = () => {
       </div>
 
       <div className="flex mt-16 md:flex-row flex-col justify-between items-center px-6 md:px-12 mx-auto">
-        <p className="text-gray-500 text-sm md:text-base">
-          &copy; 2025 <span className="text-purple-400">Pixel Perfect</span> | All Rights Reserved
+        <p className="text-white/60 text-sm md:text-base">
+          &copy; 2025 <span className="text-[#b5b5f6]">Pixel Perfect</span> | All Rights Reserved
         </p>
 
         <div className="flex items-center gap-5">

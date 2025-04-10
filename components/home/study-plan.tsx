@@ -6,11 +6,11 @@ import {studyplan} from "../../constants/index"
 
 const StudyPlan = () => {
   return (
-    <div className="py-20">
+    <div className="py-20 bg-[#0d0d0d]">
       <h1 className=" text-3xl md:text-5xl font-bold text-center text-white">
-  Your Ultimate <span className="text-purple-400">Study Plan</span> & <span className="text-purple-400">Roadmaps 🚀</span>
+  Your Ultimate <span className="text-[#b5b5f6]">Study Plans</span> & <span className="text-[#b5b5f6]">Roadmaps 🚀</span>
 </h1>
-      <div className="flex flex-wrap items-center justify-center p-4 gap-16 mt-10">
+      <div className="flex flex-wrap items-center justify-center p-4 gap-16 mt-2">
         {studyplan.map((item) => (
           <div
             className="lg:min-h-[32.5rem] h-[25rem] flex items-center justify-center sm:w-96 w-[80vw]"
@@ -30,14 +30,14 @@ const StudyPlan = () => {
                 
               </div>
 
-              <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1 text-white">
+              <h1 className="font-semibold lg:text-[20px] md:text-xl text-base line-clamp-1 text-white">
                 {item.title}
               </h1>
 
               <p
-                className="lg:text-xl lg:font-normal font-light text-sm line-clamp-2"
+                className="lg:text-[16px] lg:font-normal font-light text-sm line-clamp-2"
                 style={{
-                  color: "#BEC1DD",
+                  color: "#FFFFFFCC",
                   margin: "1vh 0",
                 }}
               >
@@ -60,10 +60,10 @@ const StudyPlan = () => {
                 </div>
 
                 <div className="flex justify-center items-center">
-                  <p className="flex lg:text-xl md:text-xs text-sm text-purple-300">
-                    Check Live Site
+                  <p className="flex lg:text-xl md:text-xs text-sm text-[#b5b5f6]">
+                    Read
                   </p>
-                  <FaLocationArrow className="ms-3" color="#CBACF9" />
+                  <FaLocationArrow className="ms-3" color="#b5b5f6" />
                 </div>
               </div>
             </PinContainer>

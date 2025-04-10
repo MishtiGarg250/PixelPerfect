@@ -64,13 +64,13 @@ const AdminDashboard = () => {
   };
 
   return (
-    <div className="mt-12 px-4 bg-black min-h-screen text-purple-200">
+    <div className="mt-12 px-4 bg-black min-h-screen text-white">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-3xl font-semibold">Admin Dashboard</h2>
+        <h2 className="text-3xl font-bold">Admin Dashboard</h2>
         <Link href={"/dashboard/tracks/create"}>
           <Button
-            variant="outline"
-            className="gap-2 border-purple-400 text-purple-300 hover:text-purple-100 hover:border-purple-300"
+            variant="default"
+            className="gap-2 bg-[#b5b5f6] text-black hover:bg-[#f7bff4]"
           >
             <PlusCircle className="h-4 w-4" />
             Add new Track
@@ -78,7 +78,7 @@ const AdminDashboard = () => {
         </Link>
       </div>
 
-      <h2 className="text-2xl font-semibold mb-4">All Tracks</h2>
+      <h2 className="text-xl font-semibold mb-4">All Tracks</h2>
       {tracks.map((track) => (
         <div
           key={track.id}
