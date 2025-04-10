@@ -44,7 +44,7 @@ export async function BlogDashboard() {
       {/* Header */}
       <div className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-purple-300">Admin Dashboard</h1>
+          <h1 className="text-3xl font-bold text-white">Admin Dashboard</h1>
           <p className="text-sm text-purple-50">
             Manage your content and analytics
           </p>

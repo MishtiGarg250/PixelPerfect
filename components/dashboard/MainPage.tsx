@@ -6,7 +6,7 @@ const MainPage = () => {
   return (
     <div className="min-h-screen bg-black text-purple-200 px-8 py-12">
     
-      <h1 className="text-4xl font-bold mb-10 text-purple-300 pb-4">
+      <h1 className="text-4xl font-bold mb-8 text-white pb-4">
         Admin Dashboard
       </h1>
 
@@ -15,28 +15,28 @@ const MainPage = () => {
         
         
         <Link href="/dashboard/articles" className="hover:scale-105 transition-transform">
-          <Card className="bg-purple-900/10 border border-purple-500 text-purple-200 hover:shadow-lg hover:border-purple-300 transition-all duration-300">
+            <Card className="bg-[#1c1c29] border-0 text-white hover:shadow-lg hover:border-purple-300 transition-all duration-300 rounded-2xl">
             <CardHeader>
-              <CardTitle className="text-xl">Blog Management</CardTitle>
+              <CardTitle className="text-xl">Blogs Management</CardTitle>
             </CardHeader>
             <CardContent>
-              <CardDescription className="text-purple-400">
-                Create and manage your blogs and articles here
+              <CardDescription className="text-white/80 leading-relaxed">
+              Effortlessly create, edit, and manage your blogs and articles to keep your content fresh and engaging.
               </CardDescription>
             </CardContent>
-          </Card>
+            </Card>
         </Link>
 
       
         <Link href="/dashboard/tracks" className="hover:scale-105 transition-transform">
-          <Card className="bg-purple-900/10 border border-purple-500 text-purple-200 hover:shadow-lg hover:border-purple-300 transition-all duration-300">
+          <Card className="bg-[#1c1c29] border-0 text-white hover:shadow-lg hover:border-purple-300 transition-all duration-300 rounded-2xl">
             <CardHeader>
               <CardTitle className="text-xl">Track Management</CardTitle>
             </CardHeader>
             <CardContent>
-              <CardDescription className="text-purple-400">
-                Manage and create all your learning tracks here
-              </CardDescription>
+                <CardDescription className="text-white/80 leading-relaxed">
+                Seamlessly organize, create, and manage your learning tracks to enhance the educational experience.
+                </CardDescription>
             </CardContent>
           </Card>
         </Link>

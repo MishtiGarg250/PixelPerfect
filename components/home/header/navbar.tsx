@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Search, Menu, X } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { useState } from "react"
 import { UserButton, SignedIn } from "@clerk/nextjs"
 import { SignedOut, SignInButton, SignUpButton } from "@clerk/clerk-react"
@@ -12,28 +13,31 @@ export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-purple-500  backdrop-blur text-white shadow-md">
+    <nav className="sticky top-0 z-50 w-full border-b-2 border-white/15 backdrop-blur text-white shadow-md">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Left Section */}
           <div className="flex items-center gap-8">
             {/* Logo */}
+            <Link href="/">
+              <Image src="/logo.png" alt="PixelPerfect Logo" width={32} height={32} className="h-8 w-auto" />
+            </Link>
             <Link href="/" className="flex items-center space-x-2">
               <span className="text-2xl font-extrabold tracking-tight">
-                <span className="bg-gradient-to-r from-pink-400 to-purple-500 text-transparent bg-clip-text">
+                <span className="bg-gradient-to-r from-[#b5b5f6] to-[#f7bff4] text-transparent bg-clip-text">
                   Pixel
                 </span>
-                <span className="text-white/60">{" "}Perfect</span>
+                <span className="text-white">{" "}Perfect</span>
               </span>
             </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-6 text-sm font-medium text-white/70">
-              <Link href="/about-us" className="hover:text-purple-400 transition-colors">About us</Link>
-              <Link href="/skills" className="hover:text-purple-400 transition-colors">Skills</Link>
-              <Link href="/dashboard" className="hover:text-purple-400 transition-colors">Dashboard</Link>
-              <Link href="/articles" className="hover:text-purple-400 transition-colors">Articles</Link>
-              <Link href="/study-plans" className="hover:text-purple-400 transition-colors">Study Plans</Link>
+              <Link href="/about-us" className="hover:text-[#b5b5f6] transition-colors">About us</Link>
+              <Link href="/skills" className="hover:text-[#b5b5f6] transition-colors">Skills</Link>
+              <Link href="/dashboard" className="hover:text-[#b5b5f6] transition-colors">Dashboard</Link>
+              <Link href="/articles" className="hover:text-[#b5b5f6] transition-colors">Articles</Link>
+              <Link href="/study-plans" className="hover:text-[#b5b5f6] transition-colors">Study Plans</Link>
             </div>
           </div>
 
@@ -50,12 +54,12 @@ export function Navbar() {
             <SignedOut>
               <div className="flex gap-2">
                 <SignInButton>
-                  <Button variant="outline" className="border-purple-500/50 text-puprle-400 hover:bg-purple-500 hover:text-white transition">
+                  <Button variant="outline" className="border-[#b5b5f6] border-[2px] text-[#b5b5f6] hover:bg-[#b5b5f6] hover:text-black transition">
                     Login
                   </Button>
                 </SignInButton>
                 <SignUpButton>
-                  <Button className="bg-purple-500 hover:bg-purple-600 text-white transition">
+                  <Button className="bg-[#b5b5f6] hover:bg-[#f7bff4] text-black transition">
                     Sign up
                   </Button>
                 </SignUpButton>
