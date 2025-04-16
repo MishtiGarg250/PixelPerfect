@@ -7,6 +7,7 @@ import CommentList from "../comments/comment-list";
 import { prisma } from "@/lib/prisma"; 
 import LikeButton from "./actions/like-button";
 import { auth } from "@clerk/nextjs/server";
+import {redirect} from "next/navigation";
 
 type ArticleDetailPageProps = {
   article: Prisma.ArticlesGetPayload<{
@@ -39,11 +40,10 @@ export async function ArticleDetailPage({ article }: ArticleDetailPageProps) {
   });
  
   const likes = await prisma.like.findMany({where:{articleId:article.id}});
-  const {userId} = await auth();
-  const user = await prisma.user.findUnique({where:{clerkUserId:userId as string}});
+  const { userId } = await auth();
+const user = userId ? await prisma.user.findUnique({ where: { clerkUserId: userId } }) : null;
+const isLiked = likes.some((like) => like.userId === user?.id);
 
-  const isLiked = likes.some((like) => like.userId === user?.id);
-  
   
 
   return (
@@ -87,7 +87,7 @@ export async function ArticleDetailPage({ article }: ArticleDetailPageProps) {
           />
 
           {/* Article Actions */}
-          <LikeButton articleId={article.id} likes={likes} isLiked = {isLiked}/>
+          <LikeButton articleId={article.id} likes={likes} isLiked = {isLiked} userId ={userId}/>
 
           {/* Comments Section */}
           <Card className="p-6">
@@ -99,7 +99,7 @@ export async function ArticleDetailPage({ article }: ArticleDetailPageProps) {
             </div>
 
             {/* Comment Form */}
-            <CommentForm articleId={article.id} />
+            <CommentForm articleId={article.id} userId={userId} />
 
             {/* Comments List */}
             <CommentList comments={comments} />

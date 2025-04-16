@@ -5,6 +5,8 @@ import axios from 'axios';
 import { Button } from '@/components/ui/button';
 import Link from "next/link";
 import { PlusCircle } from 'lucide-react';
+import { deleteTrack } from '@/actions/delete-track';
+import { useTransition } from 'react';
 
 type RoadmapItem = {
   id?: string;
@@ -38,14 +40,6 @@ const AdminDashboard = () => {
     console.log(tracks);
   };
 
-  const handleDelete = async (id: string) => {
-    try {
-      await axios.delete(`/api/admin/tracks`,{data:{id}});
-      fetchTracks();
-    } catch (err) {
-      console.error(err);
-    }
-  };
 
   const handleEdit = async (trackData:{
     id:string;
@@ -67,7 +61,7 @@ const AdminDashboard = () => {
     <div className="mt-12 px-4 bg-black min-h-screen text-white">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-3xl font-bold">Admin Dashboard</h2>
-        <Link href={"/dashboard/tracks/create"}>
+        <Link href={"tracks/create"}>
           <Button
             variant="default"
             className="gap-2 bg-[#b5b5f6] text-black hover:bg-[#f7bff4]"
@@ -111,13 +105,11 @@ const AdminDashboard = () => {
           ))}
 
           <div className="flex gap-3 mt-4">
-            <Button
-              variant="outline"
-              onClick={() => handleDelete(track.id!)}
-              className="border-purple-500 text-red-500 hover:text-red-400 hover:border-red-400 text-sm"
-            >
-              Delete Track
-            </Button>
+            <DeleteButton
+              trackId={track.id}
+            />
+              
+            <Link href="tracks/edit">
             <Button
               variant="outline"
               onClick={() => handleEdit({id:track.id!,title:track.title!,description:track.description|| "",modules:track.modules|| []})}
@@ -125,6 +117,7 @@ const AdminDashboard = () => {
             >
               Edit Track
             </Button>
+            </Link>
           </div>
         </div>
       ))}
@@ -133,3 +126,25 @@ const AdminDashboard = () => {
 };
 
 export default AdminDashboard;
+
+type DeleteButtonProps={
+  trackId:string;
+}
+
+const DeleteButton: React.FC<DeleteButtonProps> = ({ trackId }) => {
+  const [isPending, startTransition] = useTransition();
+
+  return (
+    <form
+      action={() =>
+        startTransition(async () => {
+          await deleteTrack(trackId);
+        })
+      }
+    >
+      <Button className="bg-white text-purple-600" disabled={isPending} variant="ghost" size="sm" type="submit">
+        {isPending ? "Deleting..." : "Delete"}
+      </Button>
+    </form>
+  );
+};

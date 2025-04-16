@@ -14,7 +14,7 @@ const MainPage = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
         
         
-        <Link href="/dashboard/articles" className="hover:scale-105 transition-transform">
+        <Link href="/admin/dashboard/articles" className="hover:scale-105 transition-transform">
             <Card className="bg-[#1c1c29] border-0 text-white hover:shadow-lg hover:border-purple-300 transition-all duration-300 rounded-2xl">
             <CardHeader>
               <CardTitle className="text-xl">Blogs Management</CardTitle>
@@ -28,7 +28,7 @@ const MainPage = () => {
         </Link>
 
       
-        <Link href="/dashboard/tracks" className="hover:scale-105 transition-transform">
+        <Link href="/admin/dashboard/tracks" className="hover:scale-105 transition-transform">
           <Card className="bg-[#1c1c29] border-0 text-white hover:shadow-lg hover:border-purple-300 transition-all duration-300 rounded-2xl">
             <CardHeader>
               <CardTitle className="text-xl">Track Management</CardTitle>

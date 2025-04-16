@@ -2,6 +2,7 @@ import Footer from "@/components/home/blog-footer";
 import HeroSection from "@/components/home/hero-section";
 import Skills from "@/components/home/Skills";
 import StudyPlan from "@/components/home/study-plan";
+import TopArticles from "@/components/home/top-articles";
 
 
 const page = async () => {
@@ -10,7 +11,8 @@ const page = async () => {
       <HeroSection />
       <Skills/>
       <StudyPlan/>
-      <Footer />
+      <TopArticles/>
+      <Footer/>
     </main>
   );
 };

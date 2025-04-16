@@ -13,7 +13,7 @@ model User {
   email       String     @unique
   name        String
   imageUrl    String?
-  role        String?
+  role        String?    @default("user") //"admin" or "user"
   progress    Progress[]
   articles    Articles[]
   comments    Comment[]

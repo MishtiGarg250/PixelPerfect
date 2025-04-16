@@ -85,7 +85,7 @@ export async function PUT(req: Request) {
       },
     });
 
-    return NextResponse.json({ success: true, track: updatedTrack });
+    return NextResponse.json({ success: true, updatedTrack });
   } catch (error) {
     console.error("Failed to update track", error);
     return NextResponse.json({ error: "Failed to update track" }, { status: 500 });

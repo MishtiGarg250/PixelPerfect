@@ -5,20 +5,27 @@ import { Bookmark, Share2,ThumbsUp } from "lucide-react"
 import React, {useOptimistic,useTransition} from 'react'
 import {toggleLike} from "@/actions/like-toggle"
 import type { Like } from "@prisma/client"
+import { useRouter } from "next/navigation"
 
 type LikeButtonProps = {
     articleId: string;
     likes: Like[];
     isLiked: boolean;
+    userId: string;
 }
 
 const LikeButton: React.FC<LikeButtonProps>=({
-    articleId,likes,isLiked
+    articleId,likes,isLiked,userId
 })=>{
+    const router = useRouter();
     const [optimisticLikes, setOptimisticLikes] = useOptimistic(likes.length);
     const [isPending,startTransition] = useTransition();
 
     const handleLike = async()=>{
+        if (!userId) {
+            router.push("https://star-condor-3.accounts.dev/sign-up?redirect_url=http%3A%2F%2Flocalhost%3A3000%2Fdashboard");
+            return;
+          }
         startTransition(async()=>{
             setOptimisticLikes(isLiked? optimisticLikes-1:optimisticLikes+1);
             await toggleLike(articleId);

@@ -1,5 +1,5 @@
 "use client"
-
+import {useRouter} from "next/navigation";
 import React, {useActionState} from "react"
 import {Avatar, AvatarFallback, AvatarImage} from '../ui/avatar'
 import { Input } from "../ui/input"
@@ -7,16 +7,27 @@ import { Button } from "../ui/button"
 import { createComments } from "@/actions/create-comments"
 
 type CommentFormProps={
-    articleId:string
+    articleId:string,
+    userId:string | null;
 }
 
-const CommentForm: React.FC<CommentFormProps> = ({articleId})=>{
+const CommentForm: React.FC<CommentFormProps> = ({articleId,userId})=>{
+    const router =useRouter();
     const [formState,action,isPending] = useActionState(createComments.bind(null,articleId),{
         errors:{},
 
     });
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        if (!userId) {
+          e.preventDefault(); // Prevent form submission
+          router.push(
+            "https://star-condor-3.accounts.dev/sign-up?redirect_url=http%3A%2F%2Flocalhost%3A3000%2Fdashboard"
+          );
+        }
+        // else, let the action run normally
+      };
     return(
-        <form action={action} className="mb-8">
+        <form action={action} className="mb-8" onSubmit={handleSubmit}>
             <div className="flex gap-4">
                 <Avatar className="h-10 w-10">
                     <AvatarImage src="/current-user-avatar.jpg"/>
