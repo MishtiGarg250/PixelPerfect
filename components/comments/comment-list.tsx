@@ -18,7 +18,7 @@ type CommentListProps = {
 
 const CommentList: React.FC<CommentListProps> = ({comments})=>{
     return(
-        <div>
+        <div className="flex flex-col gap-4">
             {comments.map((comment)=>(
                 <div key={comment.id} className="flex gap-4">
                     <Avatar className="h-10 w-10">

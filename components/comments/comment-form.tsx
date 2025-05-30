@@ -5,6 +5,7 @@ import {Avatar, AvatarFallback, AvatarImage} from '../ui/avatar'
 import { Input } from "../ui/input"
 import { Button } from "../ui/button"
 import { createComments } from "@/actions/create-comments"
+import { useUser } from "@clerk/nextjs/";
 
 type CommentFormProps={
     articleId:string,
@@ -13,6 +14,7 @@ type CommentFormProps={
 
 const CommentForm: React.FC<CommentFormProps> = ({articleId,userId})=>{
     const router =useRouter();
+    const {user} = useUser();
     const [formState,action,isPending] = useActionState(createComments.bind(null,articleId),{
         errors:{},
 
@@ -31,13 +33,13 @@ const CommentForm: React.FC<CommentFormProps> = ({articleId,userId})=>{
             <div className="flex gap-4">
                 <Avatar className="h-10 w-10">
                     <AvatarImage src="/current-user-avatar.jpg"/>
-                    <AvatarFallback>Y</AvatarFallback>
+                     <AvatarFallback className="border-2">{user?.firstName?.[0] || "U"}</AvatarFallback>
                 </Avatar>
                 <div className="flex-1">
                     <Input placeholder="Add a comment..." name="body" className="py-6 text-base"/>
                     {formState.errors.body && <p className="text-red-600 text-sm font-medium">{formState.errors.body}</p>}
-                    <div className="mt-4 flex jsutify-end">
-                        <Button disabled={isPending} type="submit">
+                    <div className="mt-4 flex justify-end">
+                        <Button disabled={isPending} type="submit" className= "border-r-amber-50 border-2">
                             {isPending ? "Loading":"Post Comment"}
                         </Button>
                     </div>

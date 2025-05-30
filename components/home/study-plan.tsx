@@ -6,7 +6,7 @@ import {studyplan} from "../../constants/index"
 
 const StudyPlan = () => {
   return (
-    <div className="py-20 bg-[#0d0d0d]">
+    <div className="py-20 bg-[#0d0d0d]" id="study-plans">
       <h1 className=" text-3xl md:text-5xl font-bold text-center text-white">
   Your Ultimate <span className="text-[#b5b5f6]">Study Plans</span> & <span className="text-[#b5b5f6]">Roadmaps 🚀</span>
 </h1>

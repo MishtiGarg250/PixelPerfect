@@ -33,11 +33,11 @@ export function Navbar() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-6 text-sm font-medium text-white/70">
-              <Link href="/about-us" className="hover:text-[#b5b5f6] transition-colors">About us</Link>
-              <Link href="/skills" className="hover:text-[#b5b5f6] transition-colors">Skills</Link>
-              <Link href="/dashboard" className="hover:text-[#b5b5f6] transition-colors">Dashboard</Link>
-              <Link href="/articles" className="hover:text-[#b5b5f6] transition-colors">Articles</Link>
-              <Link href="/study-plans" className="hover:text-[#b5b5f6] transition-colors">Study Plans</Link>
+              <Link href="/" className="hover:text-[#b5b5f6] transition-colors">About us</Link>
+              <Link href="#skills" className="hover:text-[#b5b5f6] transition-colors">Skills</Link>
+              <Link href="/user/dashboard" className="hover:text-[#b5b5f6] transition-colors">Dashboard</Link>
+              <Link href="#articles" className="hover:text-[#b5b5f6] transition-colors">Articles</Link>
+              <Link href="#study-plans" className="hover:text-[#b5b5f6] transition-colors">Study Plans</Link>
             </div>
           </div>
 
@@ -90,11 +90,11 @@ export function Navbar() {
 
             {/* Navigation Links */}
             <div className="space-y-2 px-4 text-white">
-              <Link href="/articles" className="block py-2 hover:text-purple-400" onClick={() => setIsMobileMenuOpen(false)}>Articles</Link>
-              <Link href="/skills" className="block py-2 hover:text-purple-400" onClick={() => setIsMobileMenuOpen(false)}>Skills</Link>
-              <Link href="/about-us" className="block py-2 hover:text-purple-400" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
-              <Link href="/dashboard" className="block py-2 hover:text-purple-400" onClick={() => setIsMobileMenuOpen(false)}>Dashboard</Link>
-              <Link href="/study-plans" className="block py-2 hover:text-purple-400" onClick={() => setIsMobileMenuOpen(false)}>Study Plans</Link>
+              <Link href="#articles" className="block py-2 hover:text-purple-400" onClick={() => setIsMobileMenuOpen(false)}>Articles</Link>
+              <Link href="#skills" className="block py-2 hover:text-purple-400" onClick={() => setIsMobileMenuOpen(false)}>Skills</Link>
+              <Link href="/" className="block py-2 hover:text-purple-400" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
+              <Link href="/user/dashboard" className="block py-2 hover:text-purple-400" onClick={() => setIsMobileMenuOpen(false)}>Dashboard</Link>
+              <Link href="#study-plans" className="block py-2 hover:text-purple-400" onClick={() => setIsMobileMenuOpen(false)}>Study Plans</Link>
             </div>
 
             <SignedOut>

@@ -140,7 +140,7 @@ export const studyplan = [
     title: "Full Stack Web Development Roadmap",
     des: "Web development is divided into frontend, backend, and full-stack development. Frontend development involves creating user interfaces using HTML, CSS, and JavaScript, along with frameworks like React.js or Next.js for better functionality",
     img: "https://miro.medium.com/v2/resize:fit:1200/1*IYQnAWgsoxvm8XPP2Rmzbg.jpeg",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
+    iconLists: ["/js.png", "/express-js.png", "/html-5.png", "/css-3.png", "/reactjs.png"],
     link: "/ui.earth.com",
   },
   {
@@ -148,7 +148,7 @@ export const studyplan = [
     title: "Full Stack Android Development Roadmap",
     des: "Android is the most widely used mobile operating system, powering millions of devices worldwide. Whether you want to build your first mobile app or enhance your existing development skills, learning Android development is an excellent choice.",
     img: "https://img.freepik.com/free-vector/app-development-banner_33099-1720.jpg",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
+    iconLists: ["/java.png", "/figma.png", "/android.png", "/kotlin.png", "illustrator.png"],
     link: "/ui.yoom.com",
   },
   {
@@ -156,7 +156,7 @@ export const studyplan = [
     title: "Learn about competitive Programming",
     des: "Competitive programming enhances problem-solving skills by focusing on data structures and algorithms. Beginners should start with arrays, strings, sorting, searching, and recursion, then move on to advanced topics like dynamic programming (DP), graph algorithms (DFS, BFS, Dijkstra), and bitwise operations.",
     img: "https://cdn.hashnode.com/res/hashnode/image/upload/v1657646901458/n20I8bm8R.png",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
+    iconLists: ["/c++.png", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
     link: "/ui.aiimg.com",
   },
 

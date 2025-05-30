@@ -15,7 +15,7 @@ const layout = async ({ children }: { children: React.ReactNode }) => {
   if (!loggedInUser) {
     await prisma.user.create({
       data: {
-        name: `${user.fullName} ${user.lastName}`,
+        name: `${user.firstName} ${user.lastName}`,
         clerkUserId: user.id,
         email: user.emailAddresses[0].emailAddress,
         imageUrl: user.imageUrl,

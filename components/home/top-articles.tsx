@@ -72,6 +72,7 @@ export default function TopArticles() {
                       {article.author.name.charAt(0)}
                     </AvatarFallback>
                   </Avatar>
+                  
                   <span>{article.author.name}</span>
                 </div>
 
