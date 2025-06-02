@@ -3,12 +3,14 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import axios from "axios";
+import { useUser,SignInButton } from "@clerk/nextjs";
 
 type ProgressStatus = "COMPLETED" | "IN_PROGRESS" | "NOT_STARTED";
 
 type Item = {
   id: string;
   title: string;
+  link?: string;
   progress: { status: ProgressStatus }[];
 };
 
@@ -29,28 +31,9 @@ export default function TrackPage() {
   const [track, setTrack] = useState<Track | null>(null);
   const params = useParams(); // dynamic route param like "android", "web", etc.
   const [title,setTitle] = useState("");
+  const {isSignedIn} = useUser();
 
-  useEffect(() => {
-    const fetchTrack = async () => {
-      try {
-        const res = await axios.get("/api/user/progress");
-        console.log(res)
-        const allTracks: Track[] = res.data.tracks;
-        console.log(allTracks[0].title);
-        console.log(params.track)
-
-        const selectedTrack = allTracks.find(
-          (t) => t.title.toLowerCase() === (params.track as string).toLowerCase()
-        );
-        console.log(selectedTrack)
-        setTrack(selectedTrack || null);
-      } catch (err) {
-        console.error("Failed to fetch progress", err);
-      }
-    };
-
-    fetchTrack();
-  }, [params.track]);
+ 
 
   const calculateProgress = (items: Item[]) => {
     const total = items.length;
@@ -98,6 +81,17 @@ const handleToggle = async (
     itemId: string,
     currentStatus: ProgressStatus
   ) => {
+    if (!isSignedIn) {
+  // Replace this section inside handleToggle
+  return (
+    <SignInButton mode="modal">
+      <button className="text-sm text-purple-400 hover:underline">
+        Sign in to save progress
+      </button>
+    </SignInButton>
+  );
+}
+
     const updatedStatus = currentStatus === "COMPLETED" ? "NOT_STARTED" : "COMPLETED";
 
     try {
@@ -157,27 +151,34 @@ const handleToggle = async (
           </p>
 
           <ul className="space-y-2">
-            {module.items.map((item) => {
-              const status = item.progress[0]?.status || "NOT_STARTED";
-              return (
-                <li
-                  key={item.id}
-                  className="flex items-center space-x-3 bg-zinc-800 p-2 rounded-md"
-                >
-                  <input
-                    type="checkbox"
-                    checked={status === "COMPLETED"}
-                    onChange={() =>
-                      handleToggle(module.id, item.id, status)
-                    }
-                    className="accent-purple-500 w-4 h-4"
-                  />
-                  <span>{item.title}</span>
-                  <span className="ml-auto text-purple-400 text-xs">{status}</span>
-                </li>
-              );
-            })}
-          </ul>
+  {module.items.map((item) => {
+    const status = item.progress?.[0]?.status || "NOT_STARTED";
+    return (
+      <li
+        key={item.id}
+        className="flex flex-col bg-zinc-800 p-2 rounded-md"
+      >
+        <div className="flex items-center space-x-3">
+          <input
+            type="checkbox"
+            checked={status === "COMPLETED"}
+            onChange={() => handleToggle(module.id, item.id, status)}
+            className="accent-purple-500 w-4 h-4"
+          />
+          <span>{item.title}</span>
+          <span className="ml-auto text-purple-400 text-xs">{status}</span>
+        </div>
+
+        {item.link && (
+          <span className="ml-7 mr-5 text-xs text-purple-300 italic overflow-clip">
+            ↳ Navigate to <code>{item.link}</code>
+          </span>
+        )}
+      </li>
+    );
+  })}
+</ul>
+
         </div>
       ))}
     </div>

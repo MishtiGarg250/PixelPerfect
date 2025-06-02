@@ -49,7 +49,7 @@ export async function BlogDashboard() {
             Manage your content and analytics
           </p>
         </div>
-        <Link href={"/dashboard/articles/create"}>
+        <Link href={"/admin/dashboard/articles/create"}>
           <Button className="gap-2  text-purple-200/50 border-1 border-purple-400
            transition-all duration-300">
             <PlusCircle className="h-4 w-4" />

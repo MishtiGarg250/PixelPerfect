@@ -28,12 +28,39 @@ async function main() {
       description: 'Roadmap for native Android apps with Kotlin.',
       modules: [
         {
-          title: 'Kotlin Basics',
+          title: 'Setting up Environment',
           items: [
-            { title: 'Variables in Kotlin' },
-            { title: 'Functions in Kotlin' },
+            { title: 'Install Android Studio' ,link:'https://developer.android.com/studio'},
+            { title: 'Install Java JDK',link:'https://www.oracle.com/in/java/technologies/downloads/' },
           ],
         },
+        {
+          title: 'Learning Kotlin',
+          items: [
+            { title: 'Use Online Compiler',link:''},
+            { title: 'Variables, Conditionals, Functions & Classes ' },
+            { title: 'Kotlin Coroutines' },
+            { title: 'Kotlin For Android' },
+            {title: 'Additional Resources'}
+          ],
+        },
+        {
+          title: 'Recommended Youtube channels',
+          items: [
+            { title: 'Philipp Lackner' ,link:'https://developer.android.com/studio'},
+            { title: 'Stevdza-San',link:'https://www.oracle.com/in/java/technologies/downloads/' },
+          ],
+        },
+        {
+          title: 'Setting up Environment',
+          items: [
+            { title: 'Install Android Studio' ,link:'https://developer.android.com/studio'},
+            { title: 'Install Java JDK',link:'https://www.oracle.com/in/java/technologies/downloads/' },
+          ],
+        },
+
+        
+
       ],
     },
     {

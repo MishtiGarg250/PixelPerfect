@@ -3,13 +3,15 @@ import React, { useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import {
-  BarChart,
-  FileText,
+  User,
+  Heart,
+  ChartColumn,
   LayoutDashboard,
   MessageCircle,
-  Settings,
 } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 const UserSidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -18,15 +20,17 @@ const UserSidebar = () => {
       {/* Mobile Sidebar */}
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger asChild>
-          <Button variant="outline" className="md:hidden m-4 text-purple-300">
+          <Button variant="outline" className="sm:hidden m-4 text-purple-300">
             <LayoutDashboard className="h-5 w-5" />
           </Button>
         </SheetTrigger>
-        <SheetContent side="left" className="w-[250px]">
+        <SheetContent side="left" className="sm:w-[250px] p-0">
           <DashboardSidebar closeSheet={() => setIsOpen(false)} />
         </SheetContent>
       </Sheet>
-      <div className="hidden md:block h-screen w-[250px] border-r bg-background">
+
+      {/* Desktop Sidebar */}
+      <div className="hidden sm:block h-screen sm:w-[250px]">
         <DashboardSidebar />
       </div>
     </div>
@@ -36,61 +40,67 @@ const UserSidebar = () => {
 export default UserSidebar;
 
 function DashboardSidebar({ closeSheet }: { closeSheet?: () => void }) {
+  const pathname = usePathname();
+
+  const links = [
+    {
+      href: "/user/profile",
+      icon: User,
+      label: "Your Profile",
+    },
+    {
+      href: "/user/articles/likedArticeles",
+      icon: Heart,
+      label: "Liked Articles",
+    },
+    {
+      href: "/user/articles/comments",
+      icon: MessageCircle,
+      label: "Comments",
+    },
+    {
+      href: "/user/dashboard/",
+      icon: ChartColumn,
+      label: "Tracks",
+    },
+  ];
+
   return (
-    <div className="h-full px-8 py-6 text-purple-200/50 border-r-1 border-purple-200/40
-    ">
+    <div
+      className="h-full px-6 py-6 bg-gradient-to-b from-black via-purple-500 to-black text-purple-200"
+    >
+      {/* Logo / Title */}
       <div className="flex items-center gap-2 mb-8 px-2">
         <Link href={"/"}>
-        <span className="text-xl font-bold">Pixel Perfect</span>
+          <span className="text-xl font-bold text-purple-100">Pixel Perfect</span>
         </Link>
       </div>
-      <nav className="space-y-1 flex flex-col gap-4">
-        <Link href={"/dashboard"}>
-          <Button
-            variant="ghost"
-            className="w-full justify-start  border-purple-200/50 rounded-2xl border-1"
-            onClick={closeSheet}
-          >
-            <LayoutDashboard className="mr-2 h-4 w-4" />
-            Overview
-          </Button>
-        </Link>
 
-        <Link href={"/dashboard/articles/create"}>
-          <Button
-            variant="ghost"
-            className="w-full justify-start s  border-purple-200/50 rounded-2xl border-1"
-            onClick={closeSheet}
-          >
-            <FileText className="mr-2 h-4 w-4" />
-            Articles
-          </Button>
-        </Link>
-        <Button
-          variant="ghost"
-          className="w-full justify-start  border-purple-200/50 rounded-2xl border-1"
+      {/* Navigation */}
+      <nav className="space-y-2 flex flex-col">
+  {links.map(({ href, icon: Icon, label }) => {
+    const isActive = pathname === href;
+
+    return (
+      <Link href={href} key={href}>
+        <div
+          className={`flex items-center gap-2 px-4 py-2 rounded-r-lg border-l-4 transition-all duration-200
+            ${
+              isActive
+                ? "bg-purple-800/50 border-l-purple-400 text-white"
+                : "border-l-transparent text-purple-200 hover:bg-purple-700 hover:text-white"
+            }
+          `}
           onClick={closeSheet}
         >
-          <MessageCircle className="mr-2 h-4 w-4" />
-          Comments
-        </Button>
-        <Button
-          variant="ghost"
-          className="w-full justify-start  border-purple-200/50 rounded-2xl border-1"
-          onClick={closeSheet}
-        >
-          <BarChart className="mr-2 h-4 w-4" />
-          Analytics
-        </Button>
-        <Button
-          variant="ghost"
-          className="w-full justify-start  border-purple-200/50  rounded-2xl border-1"
-          onClick={closeSheet}
-        >
-          <Settings className="mr-2 h-4 w-4" />
-          Settings
-        </Button>
-      </nav>
+          <Icon className="h-4 w-4" />
+          <span className="text-sm font-medium">{label}</span>
+        </div>
+      </Link>
+    );
+  })}
+</nav>
+
     </div>
   );
 }

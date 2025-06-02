@@ -38,8 +38,8 @@ model Comment {
   body      String
   articleId String
   article   Articles @relation(fields: [articleId], references: [id])
-  authorId  String
-  author    User     @relation(fields: [authorId], references: [id])
+  userId  String
+  user    User     @relation(fields: [userId], references: [id])
   createdAt DateTime @default(now())
 }
 

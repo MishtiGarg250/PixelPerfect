@@ -1,19 +1,8 @@
 import { prisma } from "@/lib/prisma";
-import { getAuth } from "@clerk/nextjs/server"; // assuming Clerk for auth
+import { auth } from "@clerk/nextjs/server";
 
-export async function GET(req: Request) {
-  const { userId } = await getAuth(req);
-
-  if (!userId) {
-    return new Response("Unauthorized", { status: 401 });
-  }
-
-  const user = await prisma.user.findUnique({
-    where: { clerkUserId: userId },
-    include: {
-      progress: true,
-    },
-  });
+export async function GET() {
+  const { userId } = await auth();
 
   const tracks = await prisma.track.findMany({
     include: {
@@ -21,9 +10,11 @@ export async function GET(req: Request) {
         include: {
           items: {
             include: {
-              progress: {
-                where: { userId: user?.id },
-              },
+              progress: userId
+                ? {
+                    where: { userId },
+                  }
+                : true, // Don't include progress if not logged in
             },
           },
         },
@@ -33,3 +24,4 @@ export async function GET(req: Request) {
 
   return Response.json({ tracks });
 }
+
