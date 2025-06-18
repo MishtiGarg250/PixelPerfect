@@ -3,7 +3,6 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Search } from "lucide-react";
 import Image from "next/image";
 import { Prisma } from "@prisma/client";
-import { Navbar } from "../home/header/navbar";
 
 type SearchPageProps = {
   articles: Prisma.ArticlesGetPayload<{

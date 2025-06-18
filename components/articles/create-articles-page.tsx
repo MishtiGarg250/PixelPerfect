@@ -1,9 +1,9 @@
 "use client"
 import {FormEvent, startTransition, useActionState, useState} from "react"
 // import "react-quill/dist/quill.snow.css";
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
-import {Label} from "../ui/label";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import {Label} from "@/components/ui/label";
 import {Card,CardHeader, CardTitle, CardContent} from "@/components/ui/card"
 import "react-quill-new/dist/quill.snow.css";
 import { createArticles } from "@/actions/create-article";

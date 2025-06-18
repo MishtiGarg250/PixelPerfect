@@ -1,13 +1,13 @@
-import { Card } from "@/components/ui/card"; 
+
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { MessageCircle } from "lucide-react";
 import { Prisma } from "@prisma/client";
-import CommentForm from "../comments/comment-form";
-import CommentList from "../comments/comment-list";
+import CommentForm from "@/components/comments/comment-form";
+import CommentList from "@/components/comments/comment-list";
 import { prisma } from "@/lib/prisma"; 
 import LikeButton from "./actions/like-button";
 import { auth } from "@clerk/nextjs/server";
-import {redirect} from "next/navigation";
+
 
 type ArticleDetailPageProps = {
   article: Prisma.ArticlesGetPayload<{

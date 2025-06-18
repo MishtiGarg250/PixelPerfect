@@ -1,7 +1,7 @@
 import React from 'react'
-import SkillText from '../sub/skill-text'
+import SkillText from '@/components/sub/skill-text'
 import { Skill_data ,skill_data2,skill_data3} from '@/constants/index'
-import SkillDataProvider from '../sub/skill-provider'
+import SkillDataProvider from '@/components/sub/skill-provider'
 
 const Skills = () => {
   return (

@@ -2,8 +2,8 @@
 import {useRouter} from "next/navigation";
 import React, {useActionState} from "react"
 import {Avatar, AvatarFallback, AvatarImage} from '../ui/avatar'
-import { Input } from "../ui/input"
-import { Button } from "../ui/button"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
 import { createComments } from "@/actions/create-comments"
 import { useUser } from "@clerk/nextjs/";
 import { Send } from "lucide-react"

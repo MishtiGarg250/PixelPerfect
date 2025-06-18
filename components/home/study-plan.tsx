@@ -1,8 +1,8 @@
 "use client";
 
 import { FaLocationArrow } from "react-icons/fa6";
-import { PinContainer } from "../sub/3d-pin";
-import {studyplan} from "../../constants/index"
+import { PinContainer } from "@/components/sub/3d-pin";
+import {studyplan} from "@/constants/index"
 
 const StudyPlan = () => {
   return (
