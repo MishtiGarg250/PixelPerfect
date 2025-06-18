@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pixel Perfect
+
+Pixel Perfect is a modern, full-stack blog and learning platform built with **Next.js**, **Prisma**, and **Clerk** authentication. It features a beautiful dark UI with purple accents, mobile responsiveness, and a focus on both content creation and interactive learning tracks.
+
+
+## Features
+
+### 🚀 Home & Articles
+- **Landing Page:** hero, skills, and study plan sections.
+- **Articles:** Browse and read articles with rich formatting and images.
+- **Article Detail:** Modern, readable layout with author info, like button, and a YouTube-style comment section.
+- **Commenting:** Authenticated users can comment, like comments, and see avatars.
+
+### 🏆 Learning Tracks & Progress
+- **User Dashboard:** Choose from curated learning tracks (Web, Android, CP), view progress, and access personalized roadmaps.
+- **Track Pages:** Interactive modules and items, with progress persistence and completion toggles.
+- **Progress Tracking:** Progress is saved and synced with the backend for each user.
+
+### 🛠️ Admin Dashboard
+- **Article Management:** Create, edit, and delete articles with a modern UI.
+- **Track Management:** Create, edit, and organize learning tracks and modules.
+- **Mobile Responsive:** All admin pages are fully responsive and visually consistent.
+
+### 👤 User Features
+- **Profile & Stats:** View your liked articles, comments, and progress.
+- **Commented Articles:** See all articles you've commented on, with quick navigation.
+
+### 🔒 Authentication
+- **Clerk Integration:** Secure sign-in/sign-up with Clerk.
+- **Role-based Access:** Admin and user roles for protected routes.
+
+## Tech Stack
+
+- **Frontend:** Next.js 15, React 19, Tailwind CSS, Lucide Icons
+- **Backend:** Next.js API routes, Prisma ORM, PostgreSQL
+- **Auth:** Clerk
+- **UI:** Radix UI, custom components, dark theme with purple gradients
+- **Other:** Cloudinary (images), Zod (validation)
 
 ## Getting Started
 
-First, run the development server:
+1. **Install dependencies:**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+2. **Set up environment variables:**
+   - Copy `.env.example` to `.env` and fill in your database and Clerk credentials.
+
+3. **Run database migrations:**
+   ```bash
+   npx prisma migrate deploy
+   ```
+
+4. **Start the development server:**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+5. **Open [http://localhost:3000](http://localhost:3000) in your browser.**
+
+## Project Structure
+
+```
+actions/         # Server actions (CRUD, search, like, etc.)
+app/             # Next.js app directory (routing, pages, API)
+components/      # UI and feature components (articles, dashboard, comments, etc.)
+lib/             # Auth, Prisma, and utility functions
+prisma/          # Prisma schema and migrations
+public/          # Static assets and images
+types/           # TypeScript global types
+utils/           # Utility functions (roles, motion, etc.)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Contributing
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Pull requests and issues are welcome! Please open an issue to discuss your ideas or report bugs.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## License
 
-## Learn More
+[ISC](LICENSE)
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Pixel Perfect** — A beautiful, modern platform for learning and sharing knowledge.
