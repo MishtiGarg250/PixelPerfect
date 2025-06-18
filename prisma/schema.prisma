@@ -18,6 +18,7 @@ model User {
   articles    Articles[]
   comments    Comment[]
   likes       Like[] // A user can like multiple articles
+  commentLikes CommentLike[] // A user can like multiple comments
 }
 
 model Articles {
@@ -38,9 +39,21 @@ model Comment {
   body      String
   articleId String
   article   Articles @relation(fields: [articleId], references: [id])
-  userId  String
-  user    User     @relation(fields: [userId], references: [id])
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  likes     CommentLike[]
   createdAt DateTime @default(now())
+}
+
+model CommentLike {
+  id        String   @id @default(cuid())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  comment   Comment  @relation(fields: [commentId], references: [id])
+  commentId String
+  createdAt DateTime @default(now())
+
+  @@unique([userId, commentId])
 }
 
 model Like {

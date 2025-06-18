@@ -36,6 +36,15 @@ export async function ArticleDetailPage({ article }: ArticleDetailPageProps) {
           imageUrl: true,
         },
       },
+      likes: {
+        include: {
+          user: {
+            select: {
+              clerkUserId: true,
+            },
+          },
+        },
+      },
     },
   });
  
@@ -90,7 +99,7 @@ const isLiked = likes.some((like) => like.userId === user?.id);
           <LikeButton articleId={article.id} likes={likes} isLiked = {isLiked} userId ={userId}/>
 
           {/* Comments Section */}
-          <Card className="p-6">
+          <div className="mt-12">
             <div className="flex items-center gap-2 mb-8">
               <MessageCircle className="h-6 w-6 text-primary" />
               <h2 className="text-2xl font-semibold text-foreground">
@@ -102,8 +111,8 @@ const isLiked = likes.some((like) => like.userId === user?.id);
             <CommentForm articleId={article.id} userId={userId} />
 
             {/* Comments List */}
-            <CommentList comments={comments} />
-          </Card>
+            <CommentList comments={comments} userId={userId} />
+          </div>
         </article>
       </main>
     </div>

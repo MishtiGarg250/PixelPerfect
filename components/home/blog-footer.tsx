@@ -29,19 +29,19 @@ const Footer = () => {
 
         <div className="pt-6 flex items-center gap-5">
           
-            <a href="" target="_blank" rel="noopener noreferrer">
-              <div className="w-12 h-12 flex justify-center items-center rounded-lg bg-opacity-20 bg-gray-800 backdrop-blur-md border border-gray-700 hover:bg-purple-500 transition-all duration-300 cursor-pointer">
-                <FaYoutube className="w-6 h-6 filter brightness-90" />
+            <a href="https://www.youtube.com/@cute_Flame" target="_blank" rel="noopener noreferrer">
+              <div className="w-12 h-12 flex justify-center items-center rounded-lg bg-opacity-20 backdrop-blur-md border border-[#b5b5f6] hover:bg-[#f7bff4] transition-all duration-300 cursor-pointer">
+                <FaYoutube className="w-6 h-6 filter brightness-90 text-[#b5b5f6]" />
               </div>
             </a>
-            <a href="" target="_blank" rel="noopener noreferrer">
-              <div className="w-12 h-12 flex justify-center items-center rounded-lg bg-opacity-20 bg-gray-800 backdrop-blur-md border border-gray-700 hover:bg-purple-500 transition-all duration-300 cursor-pointer">
-                <FaLinkedin className="w-6 h-6 filter brightness-90" />
+            <a href="https://www.linkedin.com/company/its-pixelperfect" target="_blank" rel="noopener noreferrer">
+              <div className="w-12 h-12 flex justify-center items-center rounded-lg bg-opacity-20 backdrop-blur-md border border-[#b5b5f6] hover:bg-[#f7bff4] transition-all duration-300 cursor-pointer">
+                <FaLinkedin className="w-6 h-6 filter brightness-90 text-[#b5b5f6]" />
               </div>
             </a>
-            <a href="" target="_blank" rel="noopener noreferrer">
-              <div className="w-12 h-12 flex justify-center items-center rounded-lg bg-opacity-20 bg-gray-800 backdrop-blur-md border border-gray-700 hover:bg-purple-500 transition-all duration-300 cursor-pointer">
-                <FaGithub className="w-6 h-6 filter brightness-90" />
+            <a href="https://github.com/Aryan9059" target="_blank" rel="noopener noreferrer">
+              <div className="w-12 h-12 flex justify-center items-center rounded-lg bg-opacity-20 backdrop-blur-md border border-[#b5b5f6] hover:bg-[#f7bff4] transition-all duration-300 cursor-pointer">
+                <FaGithub className="w-6 h-6 filter brightness-90 text-[#b5b5f6]" />
               </div>
             </a>
         

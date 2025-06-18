@@ -125,9 +125,7 @@ const AdminDashboard = () => {
   );
 };
 
-export default AdminDashboard;
-
-type DeleteButtonProps={
+export default AdminDashboard;type DeleteButtonProps={
   trackId:string;
 }
 
@@ -148,3 +146,4 @@ const DeleteButton: React.FC<DeleteButtonProps> = ({ trackId }) => {
     </form>
   );
 };
+

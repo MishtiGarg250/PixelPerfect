@@ -2,23 +2,18 @@ import TopArticles from "@/components/home/top-articles";
 import React, { Suspense } from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { motion } from "framer-motion"
-import { slideInFromRight } from "@/motion";
+
 export default function Articles (){
   return (
-    
-    <section className="relative py-16 md:py-24">
+    <section className="relative py-16 md:py-24" id="articles">
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
-          <h1 className=" text-3xl md:text-5xl font-bold text-center text-white">
+          <h1 className="text-3xl md:text-5xl font-bold text-center text-white">
             Featured <span className="text-[#b5b5f6]">Articles</span> behind <span className="text-[#b5b5f6]">Pixel Perfect</span>
           </h1>
-          <motion.div
-            variants={slideInFromRight(0.5)}
-            className='cursive text-[20px] text-gray-200 mb-10 mt-[10px] text-center'
-          >
+          <div className='cursive text-[20px] text-gray-200 mb-10 mt-[10px] text-center'>
             explore the
-          </motion.div>
+          </div>
         </div>
 
         {/* Top Articles */}

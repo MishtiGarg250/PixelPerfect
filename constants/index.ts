@@ -99,7 +99,7 @@ export const skill_data3 = [
 
   {
     skill_name: "Node js",
-    Image: "/assets/node-js.png",
+    Image: "/nodejs.png",
     width: 80,
     height: 80,
   },

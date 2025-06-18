@@ -36,10 +36,10 @@ export default function TopArticles() {
   };
 
   return (
-    <section className="py-20">
+    <section className="py-20" id="articles">
       <h1 className="text-3xl md:text-5xl font-bold text-center text-white">
-        Top Articles To{" "}<span className="text-purple-400">Supercharge</span> your{" "}
-        <span className="text-purple-400">Tech Journey</span>
+        Top Articles To{" "}<span className="text-[#b5b5f6]">Supercharge</span> your{" "}
+        <span className="text-[#b5b5f6]">Tech Journey</span>
       </h1>
 
       <div className="flex flex-wrap items-center justify-center p-4 gap-10 mt-12">
